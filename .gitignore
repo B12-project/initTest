@@ -1,6 +1,6 @@
 # 환경변수 설정
 /src/main/resources/properties/env.properties
-/src/main/java/december/spring/studywithme/config/PropertyConfig.java
+/src/main/java/com/b12/inittest/common/config/PropertyConfig.java
 
 HELP.md
 .gradle
