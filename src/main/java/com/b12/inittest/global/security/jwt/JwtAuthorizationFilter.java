@@ -45,8 +45,13 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             } else {
                 request.setAttribute("exception", new CustomSecurityException(SecurityErrorCode.REFRESH_NOT_FOUND));
             }
+        } else {
+            CustomSecurityException exception = (CustomSecurityException) request.getAttribute("exception");
+            if(exception.getErrorCode().equals(SecurityErrorCode.EXPIRED_JWT_TOKEN)) {
+
+            }
+                // 액세스 토큰이 만료된 경우...?
         }
-        // 액세스 토큰이 만료된 경우...?
         filterChain.doFilter(request, response);
     }
 

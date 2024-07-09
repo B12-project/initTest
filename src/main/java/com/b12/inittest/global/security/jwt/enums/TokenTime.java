@@ -7,6 +7,9 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum TokenTime {
+    // 30분 30 * 60 * 1000L
+    // 1시간 60 * 60 * 1000L
+    // 1주일 7 * 24 * 60 * 60 * 1000L
     USER_TOKEN_TIME(UserRole.USER, 30 * 60 * 1000L, 7 * 24 * 60 * 60 * 1000L),
     ADMIN_TOKEN_TIME(UserRole.ADMIN, 30 * 60 * 1000L, 60 * 60 * 1000L);
 
