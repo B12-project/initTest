@@ -40,11 +40,6 @@ public class SecurityConfig {
         return configuration.getAuthenticationManager();
     }
 
-//    @Bean
-//    public JwtExceptionFilter jwtExceptionFilter() {
-//        return new JwtExceptionFilter();
-//    }
-
     @Bean
     public JwtAuthorizationFilter jwtAuthorizationFilter() {
         return new JwtAuthorizationFilter(jwtHelper, userDetailsService);
@@ -70,6 +65,7 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests((authorizeHttpRequests) ->
                 authorizeHttpRequests
                         .requestMatchers(HttpMethod.POST, "/api/v1/users/signup").permitAll()
+                        .requestMatchers(HttpMethod.POST, "api/v1/reissue").permitAll()
                         .anyRequest().authenticated()
         );
 
