@@ -1,12 +1,11 @@
 package com.b12.inittest.domain.user.controller;
 
-import com.b12.inittest.common.response.BasicResponse;
-import com.b12.inittest.common.security.UserDetailsImpl;
+import com.b12.inittest.global.response.BasicResponse;
+import com.b12.inittest.global.security.UserDetailsImpl;
 import com.b12.inittest.domain.user.dto.SignUpRequestDto;
 import com.b12.inittest.domain.user.dto.SignUpResponseDto;
 import com.b12.inittest.domain.user.dto.UserProfileReadResponseDto;
 import com.b12.inittest.domain.user.service.UserService;
-import jakarta.persistence.Basic;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

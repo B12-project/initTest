@@ -1,13 +1,12 @@
 package com.b12.inittest.domain.user.service;
 
-import com.b12.inittest.common.exception.customException.UserException;
-import com.b12.inittest.common.exception.errorCode.UserErrorCode;
+import com.b12.inittest.global.exception.customException.UserException;
+import com.b12.inittest.global.exception.errorCode.UserErrorCode;
 import com.b12.inittest.domain.user.dto.SignUpRequestDto;
 import com.b12.inittest.domain.user.dto.SignUpResponseDto;
 import com.b12.inittest.domain.user.dto.UserProfileReadResponseDto;
 import com.b12.inittest.domain.user.entity.User;
 import com.b12.inittest.domain.user.entity.UserRole;
-import com.b12.inittest.domain.user.entity.UserStatus;
 import com.b12.inittest.domain.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
