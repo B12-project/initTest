@@ -1,4 +1,4 @@
-package com.b12.inittest.global.security.jwt.dto;
+package com.b12.inittest.global.security.dto;
 
 import lombok.Getter;
 

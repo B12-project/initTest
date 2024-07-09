@@ -1,6 +1,9 @@
 package com.b12.inittest.global.config;
 
 import com.b12.inittest.global.security.UserDetailsServiceImpl;
+import com.b12.inittest.global.security.filter.CustomAuthenticationEntryPoint;
+import com.b12.inittest.global.security.filter.JwtAuthenticationFilter;
+import com.b12.inittest.global.security.filter.JwtAuthorizationFilter;
 import com.b12.inittest.global.security.jwt.*;
 import com.b12.inittest.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -71,7 +74,6 @@ public class SecurityConfig {
 
         httpSecurity.addFilterBefore(jwtAuthorizationFilter(), JwtAuthenticationFilter.class);
         httpSecurity.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-//        httpSecurity.addFilterBefore(jwtExceptionFilter(), JwtAuthorizationFilter.class);
 
         httpSecurity.exceptionHandling(exception ->
                         exception.authenticationEntryPoint(customAuthenticationEntryPoint)
