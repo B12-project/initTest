@@ -6,6 +6,7 @@ import com.b12.inittest.common.security.UserDetailsServiceImpl;
 import com.b12.inittest.common.security.exception.CustomSecurityException;
 import com.b12.inittest.common.security.jwt.dto.LoginRequestDto;
 import com.b12.inittest.domain.user.entity.User;
+import com.b12.inittest.domain.user.entity.UserStatus;
 import com.b12.inittest.domain.user.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
@@ -60,15 +61,20 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         User loginUser = userDetailsService.findUserByUserName(authResult.getName());
 
-        String accessToken = jwtHelper.createAccessToken(loginUser.getEmail(), loginUser.getUserRole());
-        String refreshToken = jwtHelper.createRefreshToken(loginUser.getEmail(), loginUser.getUserRole());
+        if(loginUser.getUserStatus().equals(UserStatus.DEACTIVATE)) {
+            ResponseUtil.setErrorResponse(response, SecurityErrorCode.USER_DEACTIVATE);
+        } else {
 
-        loginUser.updateRefreshToken(refreshToken);
-        userRepository.save(loginUser);
+            String accessToken = jwtHelper.createAccessToken(loginUser.getEmail(), loginUser.getUserRole());
+            String refreshToken = jwtHelper.createRefreshToken(loginUser.getEmail(), loginUser.getUserRole());
 
-        response.addHeader(ACCESS_TOKEN_HEADER, accessToken);
-        response.addHeader(REFRESH_TOKEN_HEADER, refreshToken);
-        ResponseUtil.setSuccessResponse(response);
+            loginUser.updateRefreshToken(refreshToken);
+            userRepository.save(loginUser);
+
+            response.addHeader(ACCESS_TOKEN_HEADER, accessToken);
+            response.addHeader(REFRESH_TOKEN_HEADER, refreshToken);
+            ResponseUtil.setSuccessResponse(response);
+        }
     }
 
     @Override

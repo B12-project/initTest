@@ -27,6 +27,10 @@ public class User extends TimeStamped {
     @Enumerated(value = EnumType.STRING)
     private UserRole userRole;
 
+    @Column(nullable = false)
+    @Enumerated(value = EnumType.STRING)
+    private UserStatus userStatus;
+
     private String refreshToken;
 
     @Builder
@@ -35,6 +39,7 @@ public class User extends TimeStamped {
         this.password = password;
         this.userName = userName;
         this.userRole = userRole;
+        this.userStatus = UserStatus.ACTIVE;
     }
 
     public static User saveUserData(SignUpRequestDto requestDto, String password, UserRole userRole) {
@@ -48,5 +53,9 @@ public class User extends TimeStamped {
 
     public void updateRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
+    }
+
+    public void deactivateUser() {
+        this.userStatus = UserStatus.DEACTIVATE;
     }
 }

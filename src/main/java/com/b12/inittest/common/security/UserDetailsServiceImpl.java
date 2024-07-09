@@ -25,5 +25,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public User findUserByUserName(String username) {
         return userRepository.findByEmail(username).orElseThrow(() -> new CustomSecurityException(SecurityErrorCode.USER_NOT_FOUND));
     }
-
 }

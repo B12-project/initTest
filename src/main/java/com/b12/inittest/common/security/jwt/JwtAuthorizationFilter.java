@@ -44,12 +44,10 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
                 Claims info = jwtHelper.getUserInfoFromToken(accessToken);
                 setAuthentication(info.getSubject());
             } else {
-                request.setAttribute("exception", new CustomSecurityException(SecurityErrorCode.INVALID_JWT_TOKEN));
-//                throw new CustomSecurityException(SecurityErrorCode.INVALID_JWT_TOKEN);
+                request.setAttribute("exception", new CustomSecurityException(SecurityErrorCode.REFRESH_NOT_FOUND));
             }
         }
         // 액세스 토큰이 만료된 경우...?
-
         filterChain.doFilter(request, response);
     }
 

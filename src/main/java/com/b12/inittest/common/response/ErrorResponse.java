@@ -4,7 +4,7 @@ import com.b12.inittest.common.exception.errorCode.ErrorCode;
 import lombok.Getter;
 
 @Getter
-public class ErrorResponse<T> extends BasicResponse {
+public class ErrorResponse extends BasicResponse {
     public ErrorResponse(Boolean isSuccess, Integer statusCode, String message, Object data) {
         super(isSuccess, statusCode, message, data);
     }

@@ -70,7 +70,7 @@ public class SecurityConfig {
 
         httpSecurity.authorizeHttpRequests((authorizeHttpRequests) ->
                 authorizeHttpRequests
-                        .requestMatchers(HttpMethod.PUT, "/api/v1/users/signup").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/users/signup").permitAll()
                         .anyRequest().authenticated()
         );
 
