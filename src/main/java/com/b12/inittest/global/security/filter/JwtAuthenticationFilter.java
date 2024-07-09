@@ -1,10 +1,11 @@
-package com.b12.inittest.global.security.jwt;
+package com.b12.inittest.global.security.filter;
 
 import com.b12.inittest.global.exception.errorCode.SecurityErrorCode;
 import com.b12.inittest.global.security.ResponseUtil;
 import com.b12.inittest.global.security.UserDetailsServiceImpl;
 import com.b12.inittest.global.exception.customException.CustomSecurityException;
-import com.b12.inittest.global.security.jwt.dto.LoginRequestDto;
+import com.b12.inittest.global.security.jwt.JwtHelper;
+import com.b12.inittest.global.security.dto.LoginRequestDto;
 import com.b12.inittest.domain.user.entity.User;
 import com.b12.inittest.domain.user.entity.UserStatus;
 import com.b12.inittest.domain.user.repository.UserRepository;

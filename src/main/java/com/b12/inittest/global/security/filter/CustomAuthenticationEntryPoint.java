@@ -1,4 +1,4 @@
-package com.b12.inittest.global.security.jwt;
+package com.b12.inittest.global.security.filter;
 
 import com.b12.inittest.global.exception.errorCode.CommonErrorCode;
 import com.b12.inittest.global.security.ResponseUtil;

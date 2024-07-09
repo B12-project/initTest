@@ -1,9 +1,10 @@
-package com.b12.inittest.global.security.jwt;
+package com.b12.inittest.global.security.filter;
 
 import com.b12.inittest.global.exception.errorCode.SecurityErrorCode;
 import com.b12.inittest.global.security.UserDetailsServiceImpl;
 import com.b12.inittest.global.exception.customException.CustomSecurityException;
 import com.b12.inittest.domain.user.entity.User;
+import com.b12.inittest.global.security.jwt.JwtHelper;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
